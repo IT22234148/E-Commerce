@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser =require('cookie-parser');
 const cors =require('cors');
+const productrouter = require("./routes/ProductRoute");
 
 mongoose.connect('mongodb+srv://team2025:ctXHdgPgHbthyrL7@cluster0.4ujep.mongodb.net/'
 
@@ -10,6 +11,8 @@ mongoose.connect('mongodb+srv://team2025:ctXHdgPgHbthyrL7@cluster0.4ujep.mongodb
 
 
 const app = express();
+app.use(express.json());
+app.use("/products", productrouter);
 const PORT = process.env.PORT || 5000;
 
 
